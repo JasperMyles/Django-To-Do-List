@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<h1>Todo List Page</h1>
+
+<p>Hello {{name}} you are {{age}} and you are {{is_Married}} Married</p>
+
+
+
+{% if todos%}
+
+{% for each_todo in todos%}
+
+<div>
+
+<p>{{each_todo.title}}</p>
+<p>{{each_todo.user}}</p>
+<p>{{each_todo.body}}</p>
+<p>{{each_todo.time_created}}</p>
+<p>{{each_todo.user}}</p>
+<a href="{% url 'todo:todo_update' each_todo.id %}">Update</a>
+<a href="{%url 'todo:todo_delete' each_todo.id %}">Delete</a>
+
+</div>
+
+{% endfor %}
+
+{% else%}
+
+<p>No tools in the DB</p>
+
+{%endif%}
+
+{% endblock %}
